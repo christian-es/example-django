@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app_gestion.views import ClienteListView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('clientes', ClienteListView.as_view())
 ]
