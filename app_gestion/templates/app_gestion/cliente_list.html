@@ -1,45 +1,38 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tienda</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-</head>
-<body>
-    <h1>Todos los clientes</h1>
+{% block body %}
+<h1>Todos los clientes</h1>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-            </tr>
-        </thead>
-        {% for cliente in cliente_all %}
-            <tr>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.apellido }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    {% for cliente in cliente_all %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+        </tr>
+    {% endfor %}
+</table>
 
-    <hr>
+<hr>
 
-    <h1>Clientes activos</h1>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-            </tr>
-        </thead>
-        {% for cliente in cliente_enabled %}
-            <tr>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.apellido }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+<h1>Clientes activos</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    {% for cliente in cliente_enabled %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
