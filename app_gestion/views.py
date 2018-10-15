@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import ListView
 
-from app_gestion.models import Cliente
+from app_gestion.models import Cliente, Pedido
 
 
 class ClienteListView(ListView):
@@ -14,4 +14,14 @@ class ClienteListView(ListView):
         context = super().get_context_data(**kwargs)
         context['cliente_all'] = Cliente.objects.all()
         context['cliente_enabled'] = Cliente.objects.filter(activo=True)
+        return context
+
+
+class PedidoListView(ListView):
+    model = Pedido
+    template_name = 'app_gestion/pedido_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pedido_all'] = Pedido.objects.all()
         return context

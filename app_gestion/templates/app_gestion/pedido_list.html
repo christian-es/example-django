@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+<h1>Todos los pedidos</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    {% for pedido in pedido_all %}
+        <tr>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.fecha|date:"d - m - Y" }}</td>
+            <td>{{ pedido.precio_total }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
