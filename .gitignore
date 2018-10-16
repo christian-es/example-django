@@ -26,3 +26,4 @@ var/
 *.sqlite3
 /documentacion/
 node_modules/
+/avatar/
