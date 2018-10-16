@@ -3,17 +3,21 @@
 {% block body %}
 <h1>Todos los clientes</h1>
 
+<a href="cliente_add" class="btn btn-success">Añadir cliente</a>
+
 <table class="table table-hover">
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Avatar</th>
         </tr>
     </thead>
     {% for cliente in cliente_all %}
         <tr>
             <td>{{ cliente.nombre }}</td>
             <td>{{ cliente.apellido }}</td>
+            <td><img src="/media/{{ cliente.foto }}" alt="avatar"></td>
         </tr>
     {% endfor %}
 </table>
