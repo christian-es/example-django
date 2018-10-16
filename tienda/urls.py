@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from app_gestion.views import ClienteListView, PedidoListView, ClienteCreateView
@@ -23,4 +25,4 @@ urlpatterns = [
     path('clientes', ClienteListView.as_view()),
     path('cliente_add', ClienteCreateView.as_view()),
     path('pedidos', PedidoListView.as_view())
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
