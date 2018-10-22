@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from app_gestion.models import Cliente, Pedido
 
@@ -27,6 +27,11 @@ class ClienteUpdateView(UpdateView):
     model = Cliente
     fields = ['nombre', 'apellido', 'foto', 'activo', 'sexo']
     template_name_suffix = '_update_form'
+    success_url = '/clientes'
+
+
+class ClienteDeleteView(DeleteView):
+    model = Cliente
     success_url = '/clientes'
 
 

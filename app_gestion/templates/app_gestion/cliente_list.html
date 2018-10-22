@@ -19,7 +19,9 @@
             <td>{{ cliente.nombre }}</td>
             <td>{{ cliente.apellido }}</td>
             <td><img src="/media/{{ cliente.foto }}" alt="avatar"></td>
-            <td><a href="/cliente_update/{{ cliente.pk }}" class="btn btn-warning">Actualizar</a></td>
+            <td><a href="/cliente_update/{{ cliente.pk }}" class="btn btn-warning">Actualizar</a>&nbsp;&nbsp;
+                <a href="/cliente_delete/{{ cliente.pk }}" class="btn btn-danger">Borrar</a>
+            </td>
         </tr>
     {% endfor %}
 </table>
