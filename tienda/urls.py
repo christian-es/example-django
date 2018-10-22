@@ -18,11 +18,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
-from app_gestion.views import ClienteListView, PedidoListView, ClienteCreateView
+from app_gestion.views import ClienteListView, PedidoListView, ClienteCreateView, ClienteUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clientes', ClienteListView.as_view()),
     path('cliente_add', ClienteCreateView.as_view()),
+    path('cliente_update/<int:pk>', ClienteUpdateView.as_view()),
     path('pedidos', PedidoListView.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
